@@ -103,10 +103,9 @@ if __name__ == "__main__":
 
     data = pd.concat([benign, m_u, g_c, g_j, g_s, g_t, g_u, m_a, m_sc, m_sy, m_u_p], axis=0, sort=False, ignore_index=True)
 
-# Count how many instances of each class
     print(data.groupby('type')['type'].count())
 
-# Shuffle the data
+
     sampler = np.random.permutation(len(data))
     data = data.take(sampler)
 
