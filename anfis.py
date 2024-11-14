@@ -109,18 +109,14 @@ if __name__ == "__main__":
     sampler = np.random.permutation(len(data))
     data = data.take(sampler)
 
-# One-hot encode the 'type' column
     labels_full = pd.get_dummies(data['type'], prefix='type')
     data = data.drop(columns='type')
 
-# Define X and y
-    X = data.values  # Features
-    y = labels_full.values  # One-hot encoded target variable
+    X = data.values 
+    y = labels_full.values  
     print("Shape of X:", X.shape)  
     print("Shape of y:", y.shape)  
 
-
-# Standardize the features
     def standardize(df, col):
         df[col] = (df[col] - df[col].mean()) / df[col].std()
 
@@ -128,22 +124,19 @@ if __name__ == "__main__":
     for i in data_st.columns:
         standardize(data_st, i)
 
-# Preprocess the data
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
 
-# Create and train ANFIS model
+#ANFIS model
     n_inputs = X_train.shape[1]
     anfis = ANFIS(n_inputs=n_inputs, n_rules=5, n_epochs=100, learning_rate=0.01)
     anfis.train(X_train_scaled, y_train)
 
-# Make predictions
     train_predictions = anfis.predict(X_train_scaled)
     test_predictions = anfis.predict(X_test_scaled)
 
-# Convert predictions to binary classes
     train_predictions_binary = (train_predictions > 0.5).astype(int)
     test_predictions_binary = (test_predictions > 0.5).astype(int)
 
