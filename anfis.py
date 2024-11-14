@@ -140,11 +140,9 @@ if __name__ == "__main__":
     train_predictions_binary = (train_predictions > 0.5).astype(int)
     test_predictions_binary = (test_predictions > 0.5).astype(int)
 
-# Evaluate the model
     train_accuracy = accuracy_score(y_train.argmax(axis=1), train_predictions_binary)
     test_accuracy = accuracy_score(y_test.argmax(axis=1), test_predictions_binary)
     
-
     print("Train Accuracy:", train_accuracy)
     print("Test Accuracy:", test_accuracy)
     print("\nClassification Report:")
