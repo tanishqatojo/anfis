@@ -65,17 +65,17 @@ class ANFIS:
 if __name__ == "__main__":
     directory = "/Users/lilmoltojo/Desktop/archive (5)" 
     
-    benign = pd.read_csv(os.path.join(directory, '5.benign.csv'))
-    g_c = pd.read_csv(os.path.join(directory, '5.gafgyt.combo.csv'))
-    g_j = pd.read_csv(os.path.join(directory, '5.gafgyt.junk.csv'))
-    g_s = pd.read_csv(os.path.join(directory, '5.gafgyt.scan.csv'))
-    g_t = pd.read_csv(os.path.join(directory, '5.gafgyt.tcp.csv'))
-    g_u = pd.read_csv(os.path.join(directory, '5.gafgyt.udp.csv'))
-    m_a = pd.read_csv(os.path.join(directory, '5.mirai.ack.csv'))
-    m_sc = pd.read_csv(os.path.join(directory, '5.mirai.scan.csv'))
-    m_sy = pd.read_csv(os.path.join(directory, '5.mirai.syn.csv'))
-    m_u = pd.read_csv(os.path.join(directory, '5.mirai.udp.csv'))
-    m_u_p = pd.read_csv(os.path.join(directory, '5.mirai.udpplain.csv'))
+    benign = pd.read_csv(os.path.join(directory, '6.benign.csv'))
+    g_c = pd.read_csv(os.path.join(directory, '6.gafgyt.combo.csv'))
+    g_j = pd.read_csv(os.path.join(directory, '6.gafgyt.junk.csv'))
+    g_s = pd.read_csv(os.path.join(directory, '6.gafgyt.scan.csv'))
+    g_t = pd.read_csv(os.path.join(directory, '6.gafgyt.tcp.csv'))
+    g_u = pd.read_csv(os.path.join(directory, '6.gafgyt.udp.csv'))
+    m_a = pd.read_csv(os.path.join(directory, '6.mirai.ack.csv'))
+    m_sc = pd.read_csv(os.path.join(directory, '6.mirai.scan.csv'))
+    m_sy = pd.read_csv(os.path.join(directory, '6.mirai.syn.csv'))
+    m_u = pd.read_csv(os.path.join(directory, '6.mirai.udp.csv'))
+    m_u_p = pd.read_csv(os.path.join(directory, '6.mirai.udpplain.csv'))
 
     benign = benign.sample(frac=0.25, replace=False)
     g_c = g_c.sample(frac=0.25, replace=False)
